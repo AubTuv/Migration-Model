@@ -14,11 +14,21 @@
             <th>Description</th>
         </tr>
         @foreach ($tasks as $task)
-        <tr>
-            <td>{{ $task->title }}</td>
-            <td>{{ $task->description }}</td>
-        </tr>
-        @endforeach
+    <p>{{ $task->title }} - {{ $task->description }}</p>
+    
+    <!-- Edit Button -->
+    <a href="{{ route('tasks.edit', $task->id) }}">
+        <button>Edit</button>
+    </a>
+
+    <!-- Delete Form -->
+    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete</button>
+    </form>
+@endforeach
+
     </table>
 
     <br>
@@ -27,7 +37,7 @@
     </a>
 
     <br>
-    <a href="{{ url('/greet') }}">
+    <a href="{{ route('/greet') }}">
         <button>Back to Greeting</button>
     </a>
 </body>

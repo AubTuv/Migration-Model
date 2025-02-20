@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GreetController;
 use App\Http\Controllers\TaskController;
 
-// Greeting Page Route
-Route::get('/greet', function () {
-    return view('greet');
-});
+// Greeting route
+Route::get('/greet', [GreetController::class, 'index'])->name('greet');
 
-// Task Resource Routes (Handles CRUD)
+// Task resource routes
 Route::resource('tasks', TaskController::class);
 
-// Fallback Route (Redirects to Greeting Page)
+// Fallback route (redirect to greet page if not found)
 Route::fallback(function () {
-    return redirect('/greet');
+    return redirect()->route('greet');
 });
+
 
