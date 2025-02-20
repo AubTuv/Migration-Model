@@ -6,9 +6,13 @@
     <title>Greeting Page</title>
 </head>
 <body>
-    <h1>Welcome to the Task Manager</h1>
-    <a href="{{ route('tasks.create') }}">
-        <button>Create a Task</button>
-    </a>
+    <h1>Welcome to Laravel</h1>
+    <a href="{{ route('tasks.index') }}">
+    <button>View Tasks</button>
+</a>
+
+<a href="{{ route('tasks.create') }}">
+    <button>Create Task</button>
+</a>
 </body>
 </html>
