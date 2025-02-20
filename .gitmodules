@@ -1,0 +1,3 @@
+[submodule "migration_model"]
+	path = migration_model
+	url = https://github.com/AubTuv/Migration-Model
